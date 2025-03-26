@@ -22,146 +22,120 @@ body {
   background-color: #f4f4f9;
 
   font-size: 12px;
-  
+
 }
+
 
 .landing {
  position: absolute;
  z-index: 2;
 }
-.sideBar{
+.prohibition_section{
   display: grid;
-  grid-column: 2/ -1;
-  
+
+
+  grid-template-columns: 1fr 1fr;
+
+
 }
-.prohibitionChart{
+.prohibition_section__cocktail_module{
   display: grid;
+  grid-row: 1;
+  grid-column: 1;
   grid-template-rows: repeat(6, 1fr);
 
-  grid-template-columns: repeat(3, 1fr);
-
-
 }
-.coctailModule{
+.prohibition_section__information_module{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-
-  grid-column: 1 / 2;
-  grid-row: 1 / -1;
-}
-.prohibitionText{
-  
-  grid-column: 2/-1;
-  grid-row: 1/ 3;
+  grid-template-rows: repeat(3, 1fr);
   position: relative;
+
+  font-size: 2em;
+  position: relative;
+  grid-column: 2;
+
 
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
   border-radius: 10px;
- 
+
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
 }
-.prohibitionText:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 20px rgba(0, 123, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+.information_module__information{
+  display: block;
+
 }
-
-
-.cocktail-block {
+.cocktail_module__cocktail_block {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 2%;
   position: relative;
-  width: 30vh;
+  width: 50vh;
   height: 40vh;
   perspective: 1000px;
 }
 
-/* .part {
-  display: block;
-  perspective: 1000px;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-} */
-
-.part {
+.cocktail_block {
   position: relative;
-  width: auto; 
+  width: auto;
   height: auto;
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
   border-radius: 10px;
-  
+  margin: 2%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  
-  text-align: center;
-  
-}
-.image{
-  grid-column: 1 / 3;
-  grid-row: 1/4;
-}
-.image img {
-  max-width: 100%; /* Изображение не выходит за границы блока */
-  height: auto; /* Сохраняет пропорции */
+
+
 }
 
-.image:hover {
-  transform: scale(1.05); /* Небольшое увеличение */
-  box-shadow: 0 12px 20px rgba(0, 123, 255, 0.3); /* Усиленная тень */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход */
+.history > p{
+  display: none;
 }
 
 .history {
-  display: none;
-  background-color: #ffebcd;
-  grid-column: 5 / -1;
-  grid-row: 1 / 4;
-  font-size: 15px;
-  padding: 10px;
-}
-.history:hover {
-  transform: scale(1.05); 
-  box-shadow: 0 12px 20px rgba(0, 123, 255, 0.3); 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%; /* Изображение не выходит за границы блока */
+  height: auto;
+  grid-column: 5 / 8;
+  grid-row: 1/ 4;
 }
 
 
 .recipe {
-  grid-column: 3 / 5;
-  grid-row: 1/4;
-  position: absolute;
   cursor: pointer;
   transition: transform 0.6s ease;
-  border: 2px solid #007bff; 
+  grid-column: 1/-1;
+  grid-row: 4/-1;
+
 }
-.svg :hover{
-  animation: colorChange;
+.prohibition_text__information:hover,
+.history:hover,
+.recipe:hover,
+.image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 123, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-@keyframes colorChange {
-  from {
-    fill: red;
-  }
-  to {
-    fill: green;
-  }
-}
-.recipe:hover {
-  transform: scale(1.05); /* Небольшое увеличение */
-  box-shadow: 0 12px 20px rgba(0, 123, 255, 0.3); /* Усиленная тень */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход */
+.image{
+  grid-column: 1/5;
+  grid-row: 1/4;
+
 }
 
-/* Обертка для 3D-трансформации */
+.svg{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  filter: blur(1px);
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+
+}
+
+
 .flipper {
   width: 100%;
   height: 100%;
@@ -170,29 +144,23 @@ body {
   transition: transform 0.6s;
 }
 
-/* Передняя и задняя стороны */
-.flip-card-front, .flip-card-back {
+.front, .back {
+  filter: blur(3px);
   position: absolute;
   width: 100%;
   height: 100%;
+  border-radius: 10%;
   backface-visibility: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Передняя сторона (изначально видима) */
-.flip-card-front {
-  background-color: #fff;
-}
-
-/* Задняя сторона (повернута на 180deg) */
-.flip-card-back {
+.back {
   transform: rotateY(180deg);
-  background-color: #fff;
+
 }
 
-/* Поворот при клике */
 .recipe.flipped .flipper {
   transform: rotateY(180deg);
 }
