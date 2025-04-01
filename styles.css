@@ -164,3 +164,34 @@ body {
 .recipe.flipped .flipper {
   transform: rotateY(180deg);
 }
+
+.vesper{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.vesperBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/backgroundVesper.png');
+  mask: radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 50px, rgb(0, 0, 0) 50px);
+
+}
+
+.bullet{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+
+
+
+}
