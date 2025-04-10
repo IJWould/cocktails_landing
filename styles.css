@@ -32,12 +32,9 @@ body {
 }
 .prohibition_section{
   display: grid;
-
-
   grid-template-columns: 1fr 1fr;
-
-
 }
+
 .prohibition_section__cocktail_module{
   display: grid;
   grid-row: 1;
