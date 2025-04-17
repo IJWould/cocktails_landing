@@ -85,8 +85,6 @@ body {
   border-radius: 10px;
   margin: 2%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
-
 }
 
 .history > p{
@@ -179,7 +177,6 @@ body {
   height: 100%;
   background-image: url('img/backgroundVesper.png');
   mask: radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 50px, rgb(0, 0, 0) 50px);
-
 }
 
 .bullet{
@@ -187,8 +184,4 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
-
-
-
 }
