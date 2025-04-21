@@ -1,4 +1,4 @@
-// function fitText(el, ratio = 40) {
+// function fitText(el, ratio = 10) {
 
 
 //     const width = el.offsetWidth;
@@ -15,6 +15,47 @@
 //     window.addEventListener('resize', () => fitText(element));
 //   });
 
+function centerElementInView(element, container) {
+  const containerWidth = container.offsetWidth;
+  const elementWidth = element.offsetWidth;
+  const elementLeft = element.offsetLeft;
+
+  const scrollTo = elementLeft - (containerWidth / 2) + (elementWidth / 2);
+  container.scrollTo({
+    left: scrollTo,
+    behavior: 'smooth'
+  });
+}
+
+window.addEventListener('load', () => {
+  const container = document.querySelector('.cocktails_carusel');
+  const items = document.querySelectorAll('.cocktail_circle_block');
+
+  centerElementInView(items[0], container);
+
+  // Кликаем по любому элементу — он центрируется
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      centerElementInView(item, container);
+    });
+  });
+});
+
+const mediaMobile = window.matchMedia('(max-width: 600px)');
+const windowWidth = document.documentElement.clientWidth
+console.log(windowWidth)
+
+if (windowWidth <= 600){
+    const cocktailRing = document.querySelector('.cocktails_ring')
+    const cocktailsGallery = cocktailRing.parentNode
+    const cocktailRingWidthClildElement = cocktailRing.firstElementChild.offsetWidth
+
+
+    cocktailsGallery.style.width = `calc(${cocktailRingWidthClildElement}px)`
+
+
+}
+
 function addDeleteAttributes(elem, attrName){
   if(elem.hasAttribute(attrName)){
     elem.removeAttribute(attrName);
@@ -23,6 +64,10 @@ function addDeleteAttributes(elem, attrName){
     elem.setAttribute(attrName, true);
   };
 };
+
+function addReplaceClassShiftAnimation(element, className){
+  element.classList.toggle(className)
+}
 
 
 function appearDisappearAboutBlock(cocktailBlock) {
@@ -36,16 +81,13 @@ function appearDisappearAboutBlock(cocktailBlock) {
   const ActivatedInformationBlock = reciepAndHistoryBlock.querySelector('[appeared-information]');
   const flippedCocktailCard = CocktailBlocks.querySelector('[activated-flipped-cocktail-card]');
 
-
   if (ActivatedInformationBlock && ActivatedInformationBlock !== CocktailInformationBlock) {
     addDeleteAttributes(ActivatedInformationBlock, 'appeared-information');
     ActivatedInformationBlock.classList.remove('cocktail_reciep_and_history');
 
-  }
-
-  if (flippedCocktailCard && flippedCocktailCard !== FlippedCocktailBlock) {
     flippedCocktailCard.classList.remove('flipped')
     addDeleteAttributes(flippedCocktailCard, 'activated-flipped-cocktail-card');
+
   }
 
 
@@ -54,10 +96,10 @@ function appearDisappearAboutBlock(cocktailBlock) {
     addDeleteAttributes(FlippedCocktailBlock, 'activated-flipped-cocktail-card');
     addDeleteAttributes(CocktailInformationBlock, 'appeared-information');
   }
+  if (!flippedCocktailCard){
+    document.querySelector('.movie_cocktails_section').classList.toggle('shiftTop')
+  }
 }
-
-
-
 
 document.querySelectorAll('.cocktail_circle_block').forEach(cocktail_card => {
     cocktail_card.addEventListener('click', function () {
