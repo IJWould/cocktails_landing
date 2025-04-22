@@ -33,7 +33,6 @@ window.addEventListener('load', () => {
 
   centerElementInView(items[0], container);
 
-  // Кликаем по любому элементу — он центрируется
   items.forEach(item => {
     item.addEventListener('click', () => {
       centerElementInView(item, container);
