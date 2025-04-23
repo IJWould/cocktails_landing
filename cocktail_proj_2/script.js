@@ -34,13 +34,6 @@
 //   centerElementInView(items[0], container);
 
 
-//   items.forEach(item => {
-//     item.addEventListener('click', () => {
-//       centerElementInView(item, container);
-//     });
-//   });
-// });
-
 const mediaMobile = window.matchMedia('(max-width: 600px)');
 const windowWidth = document.documentElement.clientWidth
 console.log(windowWidth)
@@ -164,5 +157,3 @@ document.querySelectorAll('.cocktail_circle_block').forEach(cocktail_card => {
   });
 });
 
-
-document.querySelector('.cocktails_ring').addEventListener('click', (event) => appearDisappearAboutBlock(event));
