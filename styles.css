@@ -32,12 +32,9 @@ body {
 }
 .prohibition_section{
   display: grid;
-
-
   grid-template-columns: 1fr 1fr;
-
-
 }
+
 .prohibition_section__cocktail_module{
   display: grid;
   grid-row: 1;
@@ -88,8 +85,6 @@ body {
   border-radius: 10px;
   margin: 2%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
-
 }
 
 .history > p{
@@ -128,9 +123,9 @@ body {
 .svg{
   position: absolute;
   transform: translate(-50%, -50%);
-  filter: blur(1px);
   top: 50%;
   left: 50%;
+  filter: blur(1px);
   z-index: 1;
 
 }
@@ -182,7 +177,6 @@ body {
   height: 100%;
   background-image: url('img/backgroundVesper.png');
   mask: radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 50px, rgb(0, 0, 0) 50px);
-
 }
 
 .bullet{
@@ -190,8 +184,4 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
-
-
-
 }
